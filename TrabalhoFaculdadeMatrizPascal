@@ -1,0 +1,460 @@
+program Trabalho_Matrizes;
+uses crt;
+var 
+    notas : array  [1..10, 1..2] of real;
+    notas2 : array  [1..10, 1..2] of real;
+    maiorf, materia, qtdN, qtdN2, respmenu : integer;
+    maiorf2, qtdN3, qtdN4 : integer;
+    disciplina, disc2 : string;
+    i, j, k, l : integer;
+    menor, menorM, maior, maiorM, soma, media, media1se, soma1se, media2se, soma2se : real;
+    menor2, menorM2, maior2, maiorM2, soma2, media2, media1se2, soma1se2, media2se2, soma2se2 : real;
+
+    espaco: string;
+//------------------------------------------------------------------------------------//
+  begin 
+  clrscr;
+    Writeln('Qual a matéria das provas?: ');
+    Read(disciplina);
+    
+    writeln('----------------------------------------------');
+    
+    Writeln('Informe quantas notas você tem no 1º semestre: ');
+    Readln(qtdN);
+    
+    writeln('----------------------------------------------');
+
+    for i := 1 to 1 do
+      begin
+    for j := 1 to qtdN do
+      begin
+        writeln('Digite sua ',j, 'ª nota: ');
+        readln(notas[i,j]);
+
+    If (i=1) and (j=1) Then
+    begin
+      menor := notas[i,j];
+    end;
+
+    If notas[i,j] < menor Then
+      begin
+        menor := notas[i,j];
+      end;
+
+    If notas[i,j] > maior Then
+      begin
+        maior := notas[i,j];
+      end;
+
+
+    end;
+    end;
+    writeln('------------------------------------------------------------');
+    
+    Writeln('A menor nota de ',disciplina, ' do 1º semestre é: ', menor:2:2, ' e a maior é: ', maior:2:2 );
+    
+    writeln('------------------------------------------------------------');
+    writeln();
+    write('Press enter to continue');
+    readln(espaco);
+    
+    maiorM := 0;
+//-------------------------------FIM--1º semestre calculo-----------------------------//
+//-------------------------------------1ª MATERIA-------------------------------------//
+//-----------------------------INICIO--2º semestre calculo----------------------------//
+    clrscr;
+    
+    writeln('Informe quantas notas você tem no 2º semestre:');
+    readln(qtdN2);
+    
+    writeln('----------------------------------------------');
+    
+    for i := 2 to 2 do
+    begin
+    for j := 1 to qtdN2 do
+    begin
+    writeln('Digite sua ',j, 'ª nota: ');
+    readln(notas[i,j]);
+
+    If (i=2) and (j=1) Then
+    begin
+      menorM := notas[i,j];
+    end;
+
+    If notas[i,j] < menorM Then
+      begin
+        menorM := notas[i,j];
+      end;
+
+    If notas[i,j] > maiorM Then
+      begin
+        maiorM := notas[i,j];
+      end;
+
+    end;
+    end;
+    
+    writeln('------------------------------------------------------------');
+    
+    Writeln('A menor nota de ',disciplina,' do 2º semestre é: ', menorM:2:2, ' e a maior é: ', maiorM:2:2);
+    
+    writeln('------------------------------------------------------------');
+
+    writeln();
+    write('Press enter to continue');
+    readln(espaco);
+    
+                                      //fim 1º bloco//
+    //--------------------------------------------------------------------------------//
+                                      //começo 2º bloco//
+                                      
+    clrscr;
+    
+    writeln('Qual o nome da disciplina em que você deseja comparar suas notas com a matéria de ',disciplina,'?');
+    readln(disc2);
+    writeln('-------------------------------------------------------------------------');
+    
+    Writeln('Informe quantas notas você tem no 1º semestre na disciplina de ',disc2,': ');
+    Readln(qtdN3);
+    writeln('-------------------------------------------------------------------------');
+
+    for k := 1 to 1 do
+    begin
+    for l := 1 to qtdN3 do
+    begin
+    writeln('Digite sua ',l, 'ª nota: ');
+    readln(notas2[k,l]);
+
+    If (k=1) and (l=1) Then
+    begin
+      menor2 := notas2[k,l];
+    end;
+
+    If notas2[k,l] < menor2 Then
+      begin
+        menor2 := notas2[k,l];
+      end;
+
+    If notas2[k,l] > maior2 Then
+      begin
+        maior2 := notas2[k,l];
+      end;
+
+
+    end;
+    end;
+    
+    writeln('------------------------------------------------------------');
+    
+    Writeln('A menor nota de ',disc2, ' do 1º semestre é: ', menor2:2:2, ' e a maior é: ', maior2:2:2);
+    
+    writeln('------------------------------------------------------------');
+    
+    writeln();
+    write('Press enter to continue');
+    readln(espaco);
+    
+    clrscr;
+    
+    maiorM2 := 0;
+
+    writeln('Informe quantas notas você tem no 2º semestre:');
+    readln(qtdN4);
+    writeln('---------------------------------------------');
+    for k := 2 to 2 do
+    begin
+    for l := 1 to qtdN4 do
+    begin
+    writeln('Digite sua ',l, 'ª nota: ');
+    readln(notas2[k,l]);
+    
+    If (k=2) and (l=1) Then
+    begin
+      menorM2 := notas2[k,l];
+    end;
+
+    If notas2[k,l] < menorM2 Then
+      begin
+        menorM2 := notas2[k,l];
+      end;
+
+    If notas2[k,l] > maiorM2 Then
+      begin
+        maiorM2 := notas2[k,l];
+      end;
+
+    end;
+    end;
+    writeln('------------------------------------------------------------');
+    Writeln('A menor nota de ',disc2,' do 2º semestre é: ', menorM2:2:2, ' e a maior é: ', maiorM2:2:2);
+    writeln('------------------------------------------------------------');
+
+//------Calculo 1º CASE------//
+    for i := 1 to 1 do
+      begin
+    for j := 1 to qtdN do
+      begin
+        soma1se := soma1se + notas[i,j];
+      end;
+      end;
+//-------------------------------//
+    for k := 1 to 1 do
+      begin
+    for l := 1 to qtdN3 do
+      begin
+        soma1se2 := soma1se2 + notas2[k,l];
+      end;
+      end;
+//-----FIM Calculo 1º CASE-----//
+
+//----------------------------//
+
+//-----Calculo 2º CASE-------//
+    for i := 2 to 2 do
+      begin
+    for j := 1 to qtdN2 do
+      begin
+        soma2se := soma2se + notas[i,j];
+      end;
+      end;
+//--------------------------------//
+    for k := 2 to 2 do
+      begin
+    for l := 1 to qtdN4 do
+      begin
+        soma2se2 := soma2se2 + notas2[k,l];
+      end;
+      end;
+//-----FIM Calculo 2º CASE-----//
+
+//----------------------------//
+
+//-----Calculo 3º CASE-------//
+for i := 1 to 1 do
+  begin
+for j := 1 to qtdN do
+  begin
+    soma := soma + notas[i,j];
+  end;
+  end;
+
+for i := 2 to 2 do
+  begin
+for j := 1 to qtdN2 do
+  begin
+    soma := soma + notas[i,j];
+  end;
+  end;
+//-------------------------------//
+for k := 1 to 1 do
+  begin
+for l := 1 to qtdN3 do
+  begin
+    soma2 := soma2 + notas2[k,l];
+  end;
+  end;
+
+for k := 2 to 2 do
+  begin
+for l := 1 to qtdN4 do
+  begin
+    soma2 := soma2 + notas2[k,l];
+  end;
+  end;
+//-----FIM Calculo 3º CASE-----//
+
+    writeln();
+    write('Press enter to continue');
+    readln(espaco);
+
+                                    //Fim do 2 bloco//
+//------------------------------------------------------------------------------------//
+    repeat
+    begin
+    clrscr;
+      writeln('Digite uma das opções abaixo: ');
+      writeln('1- Notas e média do 1º semestre');
+      writeln('2- Notas e média do 2º semestre');
+      writeln('3- Notas e média anual');
+      writeln('4- Disciplina em que se saiu melhor');
+      writeln('0- Sair');
+      readln(respmenu);
+      clrscr;
+      case respmenu of
+      1:
+        begin
+            writeln('------------------------------');
+            writeln('Suas notas em ',disciplina,' são:');
+          for i := 1 to 1 do
+            begin
+          for j := 1 to qtdN do
+            begin
+              writeln(notas[i,j]:2:2);
+            end;
+            end;
+              
+    
+          begin
+            media1se := soma1se / qtdN;
+            writeln();
+            writeln('Sua média na disciplina é ',media1se:2:2);
+            writeln('------------------------------');
+            writeln();
+            writeln();
+          end;
+    
+          begin
+            writeln('------------------------------');
+            writeln('Suas notas em ',disc2,' são:');
+          for k := 1 to 1 do
+            begin
+          for l := 1 to qtdN3 do
+            begin
+              writeln(notas2[k,l]:2:2);
+            end;
+            end;
+          end;
+          begin
+            media1se2 := soma1se2 / qtdN3;
+            writeln();
+            writeln('Sua média na disciplina é ',media1se2:2:2);
+            writeln('------------------------------');
+            writeln();
+            write('Press enter to continue');
+            readln(espaco);
+          end;
+        end;
+
+      2:
+      begin
+          writeln('------------------------------');
+          writeln('Suas notas em ',disciplina,' são:');
+        for i := 2 to 2 do
+          begin
+        for j := 1 to qtdN2 do
+          begin
+            writeln(notas[i,j]:2:2);
+          end;
+          end;
+
+
+        begin
+          media2se := soma2se / qtdN2;
+          writeln();
+          writeln('Sua média na disciplina é ',media2se:2:2);
+          writeln('------------------------------');
+          writeln();
+          writeln();
+        end;
+
+        begin
+          writeln('------------------------------');
+          writeln('Suas notas em ',disc2,' são:');
+        for k := 2 to 2 do
+          begin
+        for l := 1 to qtdN4 do
+          begin
+            writeln(notas2[k,l]:2:2);
+          end;
+          end;
+        end;
+
+        begin
+          media2se2 := soma2se2 / qtdN4;
+          writeln();
+          writeln('Sua média na disciplina é ',media2se2:2:2);
+          writeln('------------------------------');
+          writeln();
+          write('Press enter to continue');
+          readln(espaco);
+        end;
+      end;
+      
+      3:
+        begin
+          writeln('------------------------------');
+          writeln('Suas notas em ',disciplina,' são:');
+            for i := 1 to 1 do
+              begin
+            for j := 1 to qtdN do
+              begin
+                writeln(notas[i,j]:2:2);
+              end;
+              end;
+          
+            for i := 2 to 2 do
+              begin
+            for j := 1 to qtdN2 do
+              begin
+                writeln(notas[i,j]:2:2);
+              end;
+              end;
+          
+              begin
+                media := soma / (qtdN + qtdN2);
+                writeln();
+                writeln('Sua média na disciplina é ',media:2:2);
+                writeln('------------------------------');
+                writeln();
+                writeln();
+              end;
+      
+      
+          writeln('------------------------------');
+          writeln('Suas notas em ',disc2,' são:');
+            for k := 1 to 1 do
+              begin
+            for l := 1 to qtdN3 do
+              begin
+                writeln(notas2[k,l]:2:2);
+                
+              end;
+              end;
+            for k := 2 to 2 do
+              begin
+            for l := 1 to qtdN4 do
+              begin
+                writeln(notas2[k,l]:2:2);
+              end;
+              end;
+          
+              begin
+                media2 := soma2 / (qtdN3 + qtdN4);
+                writeln();
+                writeln('Sua média na disciplina é ',media2:2:2);
+                writeln('------------------------------');
+                writeln();
+                write('Press enter to continue');
+                readln(espaco);
+              end;
+        end;
+      4:
+        begin
+          if media > media2 then
+            begin
+              writeln('Você se saiu melhor na disciplina de ',disciplina);
+              writeln();
+              write('Press enter to continue');
+              readln(espaco);
+            end
+          else if media < media2 then
+            begin
+              writeln('Você se saiu melhor na disciplina de ',disc2);
+              writeln();
+              write('Press enter to continue');
+              readln(espaco);
+            end
+          else
+            begin
+              writeln('Você obteve o mesmo resultado em ambas as disciplinas.');
+              writeln();
+              write('Press enter to continue');
+              readln(espaco);
+            end;
+        end;
+      0:
+      writeln('Encerrando programa. Até mais!')
+      end;  
+    end;
+    until respmenu = 0;
+  end.
